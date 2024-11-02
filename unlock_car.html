@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Your Ride Is Here</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .app-container {
+            width: 414px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #e2e9e6;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #b0b0b0;
+            border-radius: 25px;
+            margin: 10px;
+        }
+
+        .back-button {
+            background-color: #dfe3e6;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .car-icon {
+            position: absolute;
+            top: 50px;
+            left: 250px;
+            font-size: 24px;
+            color: black;
+        }
+
+        .route-line {
+            position: absolute;
+            width: 3.5px;
+            height: 96px;
+            background-color: #b30eff;
+            top: 160px;
+            left: 205px;
+            transform: rotate(209deg);
+            transform-origin: top left;
+        }
+
+        .popup-container {
+            margin-top: 15px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .popup-container h5 {
+            margin-bottom: 15px;
+        }
+
+        .ride-info p {
+            margin: 5px 0;
+        }
+
+        .unlock-btn {
+            background-color: #B02E45;
+            color: white;
+            width: 80%;
+            max-width: 300px;
+            border-radius: 25px;
+            padding: 10px;
+            border: none;
+            margin-top: 15px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .unlock-btn:hover {
+            background-color: #8a2236;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <button class="back-button">
+                <i class="fa fa-arrow-left"></i>
+            </button>
+            <span>Please wait for your AV to arrive.</span>
+        </div>
+
+        <!-- Map Container -->
+        <div class="map-container">
+            <img src="https://todocodigo.net/img/626.jpg" alt="Map" />
+            <div class="car-icon">
+                <i class="fa fa-car"></i>
+            </div>
+            <div class="route-line"></div>
+        </div>
+
+        <!-- Ride Information Popup -->
+        <div class="popup-container">
+            <i class="fa fa-car fa-2x"></i>
+            <h5>Your ride is here!</h5>
+            <div class="ride-info">
+                <p><strong>Vehicle Number:</strong> xxx-xxx-xxx</p>
+                <p><strong>Vehicle Type:</strong> xxxx</p>
+                <p><strong>Time of Arrival:</strong> xx mins</p>
+                <p><strong>Fare:</strong> $xx</p>
+            </div>
+            <button class="unlock-btn" onclick="unlockCar()">Unlock Car</button>
+        </div>
+    </div>
+
+    <script>
+        function unlockCar() {
+            alert("Car unlocked successfully!");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

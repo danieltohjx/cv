@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Search Location</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./assets/css/paper-kit.css" rel="stylesheet" />
+
+    <style>
+        /* Main Styles */
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 414px;
+            margin: 0 auto;
+            background-color: #E2E9E6;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .back-button {
+            background-color: #333;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .location-input-group {
+            position: relative;
+            flex-grow: 1;
+        }
+
+        .location-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 25px;
+            outline: none;
+            padding-left: 35px; /* Space for icons */
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #333;
+        }
+
+        .input-dot {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: #7CFC00;
+            border-radius: 50%;
+        }
+
+        .toggle-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 15px;
+        }
+
+        .toggle-button {
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            margin: 0 5px;
+        }
+
+        .toggle-button.active {
+            background-color: #7CFC00;
+            color: #333;
+        }
+
+        .toggle-button.inactive {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .nearby-locations {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .location-item {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            color:#000000
+        }
+
+        .location-item:hover {
+            background-color: #e0f7e9;
+            color:#000000
+        }
+
+        .location-circle {
+            width: 12px;
+            height: 12px;
+            background-color: #7CFC00;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Header Section with Current Location Input -->
+    <div class="header">
+        <a href="home_page.html" class="back-button" title="Back to Home">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+        <div class="location-input-group">
+            <span class="input-icon"><i class="fa fa-search"></i></span>
+            <input type="text" class="location-input" placeholder="Current Location">
+        </div>
+    </div>
+
+    <!-- Search Location Input with Green Dot -->
+    <div style="padding: 0 15px; margin-left: 40px;">
+        <div class="location-input-group">
+            <span class="input-dot"></span>
+            <input type="text" class="location-input" placeholder="Search Location">
+        </div>
+    </div>
+
+    <!-- Toggle Buttons for Recent & Saved -->
+    <div class="toggle-buttons">
+        <button class="toggle-button active" id="recentButton" onclick="toggleView('recent')">Recent</button>
+        <button class="toggle-button inactive" id="savedButton" onclick="toggleView('saved')">Saved</button>
+    </div>
+
+    <!-- Nearby Locations List -->
+    <div class="nearby-locations" id="locationList">
+        <a href="confirm_pickup.html" class="location-item">
+            <div class="location-circle"></div>
+            <div>
+                <p><strong>XXX-XXXX-XXXX</strong><br><small>Detailed address here</small></p>
+            </div>
+        </a>
+        <a href="confirm_pickup.html" class="location-item">
+            <div class="location-circle"></div>
+            <div>
+                <p><strong>XXX-XXXX-XXXX</strong><br><small>Detailed address here</small></p>
+            </div>
+        </a>
+        <a href="confirm_pickup.html" class="location-item">
+            <div class="location-circle"></div>
+            <div>
+                <p><strong>XXX-XXXX-XXXX</strong><br><small>Detailed address here</small></p>
+            </div>
+        </a>
+        <a href="confirm_pickup.html" class="location-item">
+            <div class="location-circle"></div>
+            <div>
+                <p><strong>XXX-XXXX-XXXX</strong><br><small>Detailed address here</small></p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!--   Core JS Files   -->
+<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+
+<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+<script src="./assets/js/plugins/bootstrap-switch.js"></script>
+
+<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+
+<!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+<script src="./assets/js/plugins/moment.min.js"></script>
+<script src="./assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+
+<!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
+<script src="./assets/js/paper-kit.min.js" type="text/javascript"></script>
+
+<!-- Toggle Script -->
+<script>
+    function toggleView(view) {
+        const recentButton = document.getElementById('recentButton');
+        const savedButton = document.getElementById('savedButton');
+
+        if (view === 'recent') {
+            recentButton.classList.add('active');
+            recentButton.classList.remove('inactive');
+            savedButton.classList.remove('active');
+            savedButton.classList.add('inactive');
+        } else {
+            savedButton.classList.add('active');
+            savedButton.classList.remove('inactive');
+            recentButton.classList.remove('active');
+            recentButton.classList.add('inactive');
+        }
+    }
+</script>
+</body>
+</html>
